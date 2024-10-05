@@ -1,0 +1,22 @@
+OnPush change detection:
+1) a bound event is received (click) on the component itself.
+2) an @Input() was updated (as in the ref obj changed)
+3) | async pipe received an event
+4) change detection was invoked "manually"
+
+<user-component [label]="(user$ | async)?.name"></user-component>
+Here's how it works:
+1) user$ | async: The AsyncPipe automatically subscribes to user$, and when a new value is emitted, 
+it updates the bound input (label).
+2) OnPush Strategy: If the user-component uses the OnPush change detection strategy, 
+the component will only re-render if its @Input() value changes. Since the label input is 
+changing, user-component will detect this and update accordingly.
+3) Partial Re-rendering: Only the user-component will be re-rendered (not the whole view), 
+as the OnPush strategy ensures that only components with changed inputs will trigger change detection.
+
+Important Notes:
+1)If user$ emits a new User object with a different name, the label input will receive the new name,
+ and user-component will re-render.
+2) If user$ emits the same value or an object where the name hasn't changed, Angular's change detection
+ might not trigger a re-render, unless you're working with a new object reference 
+ (due to OnPush and object immutability considerations).

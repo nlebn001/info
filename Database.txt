@@ -1,0 +1,5 @@
+Database scripts:
+1) Add-Migration 1.0.0.0 -Context OnlineLibraryDbContext
+2) Script-Migration -Context OnlineLibraryDbContext
+3) Script-Migration -From 20230808124917_version_1.0.0.0 -To 20230816152256_version_1.0.0.1 -Context OnlineLibraryDbContext
+4) Remove-Migration -Context OnlineLibraryDbContext
