@@ -1,3 +1,5 @@
+https://www.atlassian.com/git/tutorials
+
 Setup
 git config --global user.name “[firstname lastname]” => set a name that is identifiable for credit when review version history
 git config --global user.email “[valid-email]” => set an email address that will be associated with each history marker
@@ -54,3 +56,11 @@ git stash ==>Save modified and staged changes
 git stash list ==> list stack-order of stashed file changes
 git stash pop ==> write working from top of stash stack
 git stash drop ==> discard the changes from top of stash stack
+
+
+Commit
+git commit ==> commit attached files text window for comment will appear
+git commit -a => commit a all files. Text window will for comment appear 
+git commit -m "commit message" ==> commit added files with commit message
+git commit -am "commit message" ==> add all files, message and commit
+git commit --amend ==> 
